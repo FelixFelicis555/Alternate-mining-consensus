@@ -37,3 +37,13 @@
  Blocked mined: 37 Duration: 35.000974526s
  Blocked mined: 38 Duration: 31.000750411s
  Blocked mined: 39 Duration: 32.000616318s
+ Blocked mined: 40 Duration: 36.000759407s
+ Blocked mined: 41 Duration: 31.00162085s
+ Blocked mined: 42 Duration: 33.001958881s
+ Blocked mined: 43 Duration: 32.001896518s
+ Blocked mined: 44 Duration: 33.001504537s
+ Blocked mined: 45 Duration: 31.002817017s
+ Blocked mined: 46 Duration: 36.002005467s
+ Blocked mined: 47 Duration: 35.001101454s
+ Blocked mined: 48 Duration: 35.001094981s
+ Blocked mined: 49 Duration: 32.000958976s
