@@ -340,7 +340,7 @@ func handleConn(conn net.Conn) {
 		mutex.Unlock()
 
 		mutex.Lock()
-		dat, err := ioutil.ReadFile("text.txt")
+		dat, err := ioutil.ReadFile("data/text.txt")
 		mutex.Unlock()
 		bpm := string(dat)
 		bpm = calculateHash(bpm)
@@ -430,10 +430,10 @@ func generateBlock(oldBlock Block, BPM string, address string) (Block, error) {
 	newBlock.prevdatahash = oldBlock.blockdatahash
 
 	prevhash := oldBlock.blockdatahash
-	for i := 1; i <= 10; i++ {
+	for i := 1; i <= 50; i++ {
 		mutex.Lock()
-		if i != 10 {
-			dat, err := ioutil.ReadFile("text0" + strconv.Itoa(i) + ".txt")
+		if i < 10 {
+			dat, err := ioutil.ReadFile("data/text0" + strconv.Itoa(i) + ".txt")
 			mutex.Unlock()
 			if err != nil {
 				log.Println(err)
@@ -444,7 +444,7 @@ func generateBlock(oldBlock Block, BPM string, address string) (Block, error) {
 			prevhash = prevhash + bpm
 			prevhash = calculateHash(prevhash)
 		} else {
-			dat, err := ioutil.ReadFile("text" + strconv.Itoa(i) + ".txt")
+			dat, err := ioutil.ReadFile("data/text" + strconv.Itoa(i) + ".txt")
 			if err != nil {
 				log.Println(err)
 			}
