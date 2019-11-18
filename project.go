@@ -148,7 +148,7 @@ func pickWinner() {
 				_, ok := oddaddress[block.Miner]
 				if ok {
 					oddBlocks[block.Miner] = block
-					oddtime[block.Miner] = rand.Float64()*(float64(randomtime)-float64(mintime)) + float64(1)
+					oddtime[block.Miner] = rand.Float64()*(float64(randomtime)-float64(mintime)) + float64(mintime+1)
 					oddvalue = append(oddvalue, oddtime[block.Miner])
 				}
 			}
@@ -158,7 +158,7 @@ func pickWinner() {
 				_, ok := evenaddress[block.Miner]
 				if ok {
 					evenBlocks[block.Miner] = block
-					eventime[block.Miner] = rand.Float64()*(float64(randomtime)-float64(mintime)) + float64(1)
+					eventime[block.Miner] = rand.Float64()*(float64(randomtime)-float64(mintime)) + float64(mintime+1)
 					evenvalue = append(evenvalue, eventime[block.Miner])
 				}
 			}
