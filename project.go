@@ -287,6 +287,23 @@ func pickWinner() {
 		mutex.Unlock()
 	} else {
 		fmt.Println("Number of miners must be greater than or equal to 4 then this will work")
+		mutex.Lock()
+		oddvalue = []float64{}
+		evenvalue = []float64{}
+		for k := range oddtime {
+			delete(oddtime, k)
+		}
+		for k := range eventime {
+			delete(eventime, k)
+		}
+		for k := range oddBlocks {
+			delete(oddBlocks, k)
+		}
+		for k := range evenBlocks {
+			delete(evenBlocks, k)
+		}
+		tempBlocks = []Block{}
+		mutex.Unlock()
 	}
 }
 
@@ -353,6 +370,12 @@ func handleConn(conn net.Conn) {
 			candidateBlocks <- newBlock
 		}
 
+		// _, err = conn.(syscall.Conn).SyscallConn()
+
+		// if err != nil {
+		// 	fmt.Println("Connection is closed")
+		// }
+
 		time.Sleep(time.Duration(30+towait) * time.Second)
 
 		mutex.Lock()
@@ -364,6 +387,11 @@ func handleConn(conn net.Conn) {
 		io.WriteString(conn, string(output)+"\n")
 		io.WriteString(conn, "\n New Block mining round will start now \n")
 
+		// _, err = conn.(syscall.Conn).SyscallConn()
+
+		// if err != nil {
+		// 	fmt.Println("Connection is closed")
+		// }
 		// written = false
 	}
 }
